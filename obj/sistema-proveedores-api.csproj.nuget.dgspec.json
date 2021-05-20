@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\workspace_ventas\\sistema-proveedores-api\\sistema-proveedores-api\\sistema-proveedores-api.csproj": {}
+    "C:\\workspace_ventas\\sistema-proveedor-api\\sistema-proveedor-api\\sistema-proveedores-api.csproj": {}
   },
   "projects": {
-    "C:\\workspace_ventas\\sistema-proveedores-api\\sistema-proveedores-api\\sistema-proveedores-api.csproj": {
+    "C:\\workspace_ventas\\sistema-proveedor-api\\sistema-proveedor-api\\sistema-proveedores-api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\workspace_ventas\\sistema-proveedores-api\\sistema-proveedores-api\\sistema-proveedores-api.csproj",
+        "projectUniqueName": "C:\\workspace_ventas\\sistema-proveedor-api\\sistema-proveedor-api\\sistema-proveedores-api.csproj",
         "projectName": "sistema-proveedores-api",
-        "projectPath": "C:\\workspace_ventas\\sistema-proveedores-api\\sistema-proveedores-api\\sistema-proveedores-api.csproj",
+        "projectPath": "C:\\workspace_ventas\\sistema-proveedor-api\\sistema-proveedor-api\\sistema-proveedores-api.csproj",
         "packagesPath": "C:\\Users\\Bryan\\.nuget\\packages\\",
-        "outputPath": "C:\\workspace_ventas\\sistema-proveedores-api\\sistema-proveedores-api\\obj\\",
+        "outputPath": "C:\\workspace_ventas\\sistema-proveedor-api\\sistema-proveedor-api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Bryan\\AppData\\Roaming\\NuGet\\NuGet.Config",
