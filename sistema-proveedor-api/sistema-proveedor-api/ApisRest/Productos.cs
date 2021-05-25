@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Google.Protobuf.WellKnownTypes;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using sistema_proveedor_api.DAO;
 using sistema_proveedor_api.MODEL;
@@ -13,6 +15,7 @@ namespace sistema_proveedor_api.Controllers
     [Route("proveedor/[controller]")]
     public class Productos : ControllerBase
     {
+
         private MyDBContext myDbContext;
 
         public Productos(MyDBContext context)
@@ -21,9 +24,21 @@ namespace sistema_proveedor_api.Controllers
         }
 
         [HttpGet]
-        public IList<TiposIdentificacion> Get()
+        public List<TiposIdentificacion> Get()
         {
-            return (this.myDbContext.TiposIdentificacions.ToList());
+            List<TiposIdentificacion> a =
+                this.myDbContext.TiposIdentificacions
+                .FromSqlRaw("SELECT * from tbl_tipos_identificacion").ToList();
+
+            Console.WriteLine("Hola");
+            for (int i=0;i<a.Count();i++)
+            {
+                Console.WriteLine(a[i].nombre);
+            }
+
+            return a;
+            //return this.myDbContext.TiposIdentificacions.FromSql("Select * from Students where FirstName ='Bill'");
+            //return (this.myDbContext.TiposIdentificacions.ToList());
         }
     }
 }

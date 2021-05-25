@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "C3/616CK8+bzJWwFJxngyw/AD28P3ZjwIP2H5Z24jwdJilxhgJ+DUa7F4TFIJ/EgO7Z1m/j/HAReKdKhXjtESQ==",
+  "dgSpecHash": "Bz/bgxl2ouWRB0ya1qESpgdoWPm7sE3g+pLfZsyz4ycxBcOyogsA61KLnReAPhYTIMFZlT4eFfsetQNimNeN2w==",
   "success": true,
   "projectFilePath": "C:\\workspace_ventas\\sistema-proveedor-api\\sistema-proveedor-api\\sistema-proveedor-api\\sistema-proveedor-api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bryan\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
+    "C:\\Users\\Bryan\\.nuget\\packages\\google.protobuf\\3.17.1\\google.protobuf.3.17.1.nupkg.sha512",
     "C:\\Users\\Bryan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Bryan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Bryan\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.6\\microsoft.entityframeworkcore.5.0.6.nupkg.sha512",
