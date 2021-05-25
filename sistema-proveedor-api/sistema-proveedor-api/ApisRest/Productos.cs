@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using sistema_proveedor_api.DAO;
+using sistema_proveedor_api.MODEL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +13,17 @@ namespace sistema_proveedor_api.Controllers
     [Route("proveedor/[controller]")]
     public class Productos : ControllerBase
     {
+        private MyDBContext myDbContext;
 
-        private readonly ILogger<Productos> _logger;
-        public Productos(ILogger<Productos> logger)
+        public Productos(MyDBContext context)
         {
-            _logger = logger;
+            myDbContext = context;
         }
 
         [HttpGet]
-        public String Get()
+        public IList<TiposIdentificacion> Get()
         {
-            return "HOLA MUNDO";
+            return (this.myDbContext.TiposIdentificacions.ToList());
         }
     }
 }
