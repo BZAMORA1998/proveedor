@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using sistema_proveedor_api.DAO;
+using sistema_proveedor_api.DTO;
 using sistema_proveedor_api.MODEL;
 using System;
 using System.Collections.Generic;
@@ -24,21 +25,22 @@ namespace sistema_proveedor_api.Controllers
         }
 
         [HttpGet]
-        public List<TiposIdentificacion> Get()
+        public Object Get()
         {
-            List<TiposIdentificacion> a =
-                this.myDbContext.TiposIdentificacions
-                .FromSqlRaw("SELECT * from tbl_tipos_identificacion").ToList();
-
-            Console.WriteLine("Hola");
-            for (int i=0;i<a.Count();i++)
+            try
             {
-                Console.WriteLine(a[i].nombre);
-            }
 
-            return a;
-            //return this.myDbContext.TiposIdentificacions.FromSql("Select * from Students where FirstName ='Bill'");
-            //return (this.myDbContext.TiposIdentificacions.ToList());
+                return new Response200("ok",
+                  this.myDbContext.TiposIdentificacions.ToList());
+            }
+            catch (BOException e)
+            {
+                return new ResponseError(400, e.Message, e.Data);
+            }
+            catch (Exception e)
+            {
+                return new ResponseError(500, e.Message, e.Data);
+            }
         }
     }
 }
