@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using sistema_proveedor_api.BOImpl;
 using sistema_proveedor_api.DAO;
 using sistema_proveedor_api.DTO;
 using sistema_proveedor_api.MODEL;
@@ -17,21 +18,22 @@ namespace sistema_proveedor_api.Controllers
     public class Productos : ControllerBase
     {
 
-        private MyDBContext myDbContext;
+        private TipoIdentificacionBOImpl objTipoIdentificacionBOImpl;
 
-        public Productos(MyDBContext context)
+        public Productos(DbContextOptions<MyDBContext> options)
         {
-            myDbContext = context;
+            this.objTipoIdentificacionBOImpl = new TipoIdentificacionBOImpl(options);
         }
 
-        [HttpGet]
-        public Object Get()
+
+        [HttpGet("{id}")]
+        public Object consultaId(int id)
         {
             try
             {
 
                 return new Response200("ok",
-                  this.myDbContext.TiposIdentificacions.ToList());
+                  this.objTipoIdentificacionBOImpl.consultarTipoIdentificacion(id));
             }
             catch (BOException e)
             {

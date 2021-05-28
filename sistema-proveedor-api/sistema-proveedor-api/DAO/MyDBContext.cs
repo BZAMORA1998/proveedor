@@ -9,7 +9,7 @@ namespace sistema_proveedor_api.DAO
 {
     public class MyDBContext : DbContext
     {
-        public DbSet<TiposIdentificacion> TiposIdentificacions { get; set; }
+        public DbSet<TiposIdentificacion> TiposIdentificacion { get; set; }
 
         public MyDBContext(DbContextOptions<MyDBContext> options) : base(options)
         {

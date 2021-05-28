@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using sistema_proveedor_api.Dao;
 using sistema_proveedor_api.DAO;
 using sistema_proveedor_api.MODEL;
 using System;
@@ -10,26 +12,17 @@ namespace sistema_proveedor_api.BOImpl
 {
     public class TipoIdentificacionBOImpl
     {
-        private TiposIdentificacionDao context;
+        private TipoIdentificacionDao objTipoIdentificacionDao;
 
-        public TipoIdentificacionBOImpl()
-
-        {
-    
-        }
-
-        public TipoIdentificacionBOImpl(TiposIdentificacionDao objTiposIdentificacionDao)
+        public TipoIdentificacionBOImpl(DbContextOptions<MyDBContext> options)
 
         {
-            this.context = objTiposIdentificacionDao;
+            this.objTipoIdentificacionDao = new TipoIdentificacionDao(options);
         }
 
         public TiposIdentificacion consultarTipoIdentificacion(int id)
         {
-
-            List<TiposIdentificacion> studentsWithSameName = context.TiposIdentificacion.ToList();
-
-            return null;
+            return this.objTipoIdentificacionDao.consultarTipoIdentificacion(id);
         }
     }
 }
