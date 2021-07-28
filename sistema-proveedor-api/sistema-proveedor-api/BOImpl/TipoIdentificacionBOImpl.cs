@@ -16,9 +16,9 @@ namespace sistema_proveedor_api.BOImpl
             this.objTipoIdentificacionDao = new TipoIdentificacionDao(options);
         }
 
-        public TiposIdentificacion consultarTipoIdentificacion(int id)
+        public object consultarTipoIdentificacion(int id)
         {
-            return this.objTipoIdentificacionDao.find(id);
+            return this.objTipoIdentificacionDao.findById(id);
         }
 
         public object actualizacionTipoIdentificacion(int id, TiposIdentificacion obj)
