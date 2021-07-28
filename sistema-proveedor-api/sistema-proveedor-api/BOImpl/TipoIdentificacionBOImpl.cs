@@ -21,23 +21,41 @@ namespace sistema_proveedor_api.BOImpl
             return this.objTipoIdentificacionDao.find(id);
         }
 
-        public void actualizacionTipoIdentificacion(int id, TiposIdentificacion obj)
+        public object actualizacionTipoIdentificacion(int id, TiposIdentificacion obj)
         {
+            if (id == null)
+                throw new BOException("El id es requerido");
+
             TiposIdentificacion objTipoIdentificacion =this.objTipoIdentificacionDao.find(id);
             objTipoIdentificacion.esActivo=obj.esActivo;
             objTipoIdentificacion.nombre=obj.nombre;
             this.objTipoIdentificacionDao.update(objTipoIdentificacion);
+
+            return null;
         }
 
-        internal void agregarTipoIdentificacion(TiposIdentificacion objTiposIdentificacion)
+        internal object agregarTipoIdentificacion(TiposIdentificacion objTiposIdentificacion)
         {
+            if (objTiposIdentificacion.nombre == null || objTiposIdentificacion.nombre=="")
+                throw new BOException("El nombre es requerido");
+
+            objTiposIdentificacion.esActivo = "S";
+            objTiposIdentificacion.secuenciaTipoIdentificacion=0;
+
             this.objTipoIdentificacionDao.add(objTiposIdentificacion);
+
+            return null;
         }
 
-        internal void eliminarTipoIdentificacion(int id)
+        internal object eliminarTipoIdentificacion(int id)
         {
+            if (id == null)
+                throw new BOException("El id es requerido");
+
             TiposIdentificacion objTipoIdentificacion = this.objTipoIdentificacionDao.find(id);
             this.objTipoIdentificacionDao.Remove(objTipoIdentificacion);
+
+            return null;
         }
     }
 }

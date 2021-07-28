@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace sistema_proveedor_api.Controllers
 {
     [ApiController]
-    [Route("tipoIdentificacion/[controller]")]
+    [Route("[controller]")]
     public class TipoIdentificacion : ControllerBase
     {
 
@@ -51,9 +51,7 @@ namespace sistema_proveedor_api.Controllers
         {
             try
             {
-                this.objTipoIdentificacionBOImpl.actualizacionTipoIdentificacion(id, objTiposIdentificacion);
-
-                return new Response200("ok",null);
+                return new Response200("ok", this.objTipoIdentificacionBOImpl.actualizacionTipoIdentificacion(id, objTiposIdentificacion));
             }
             catch (BOException e)
             {
@@ -70,9 +68,8 @@ namespace sistema_proveedor_api.Controllers
         {
             try
             {
-                this.objTipoIdentificacionBOImpl.agregarTipoIdentificacion(objTiposIdentificacion);
-
-                return new Response200("ok", null);
+              
+                return new Response200("ok", this.objTipoIdentificacionBOImpl.agregarTipoIdentificacion(objTiposIdentificacion));
             }
             catch (BOException e)
             {
@@ -89,9 +86,8 @@ namespace sistema_proveedor_api.Controllers
         {
             try
             {
-                this.objTipoIdentificacionBOImpl.eliminarTipoIdentificacion(id);
-
-                return new Response200("ok", null);
+               
+                return new Response200("ok", this.objTipoIdentificacionBOImpl.eliminarTipoIdentificacion(id));
             }
             catch (BOException e)
             {
