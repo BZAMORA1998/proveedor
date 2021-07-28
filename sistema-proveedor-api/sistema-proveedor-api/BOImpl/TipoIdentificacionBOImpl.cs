@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using sistema_proveedor_api.Dao;
 using sistema_proveedor_api.DAO;
 using sistema_proveedor_api.MODEL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace sistema_proveedor_api.BOImpl
 {
@@ -22,7 +18,26 @@ namespace sistema_proveedor_api.BOImpl
 
         public TiposIdentificacion consultarTipoIdentificacion(int id)
         {
-            return this.objTipoIdentificacionDao.consultarTipoIdentificacion(id);
+            return this.objTipoIdentificacionDao.find(id);
+        }
+
+        public void actualizacionTipoIdentificacion(int id, TiposIdentificacion obj)
+        {
+            TiposIdentificacion objTipoIdentificacion =this.objTipoIdentificacionDao.find(id);
+            objTipoIdentificacion.esActivo=obj.esActivo;
+            objTipoIdentificacion.nombre=obj.nombre;
+            this.objTipoIdentificacionDao.update(objTipoIdentificacion);
+        }
+
+        internal void agregarTipoIdentificacion(TiposIdentificacion objTiposIdentificacion)
+        {
+            this.objTipoIdentificacionDao.add(objTiposIdentificacion);
+        }
+
+        internal void eliminarTipoIdentificacion(int id)
+        {
+            TiposIdentificacion objTipoIdentificacion = this.objTipoIdentificacionDao.find(id);
+            this.objTipoIdentificacionDao.Remove(objTipoIdentificacion);
         }
     }
 }

@@ -1,11 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using sistema_proveedor_api.DAO;
 using sistema_proveedor_api.MODEL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace sistema_proveedor_api.Dao
 {
@@ -19,9 +14,28 @@ namespace sistema_proveedor_api.Dao
             this.context = new MyDBContext(options);
         }
 
-        public TiposIdentificacion consultarTipoIdentificacion(int id)
+        public TiposIdentificacion find(int id)
         {
             return this.context.TiposIdentificacion.Find(id); ;
+        }
+
+
+        public void add(TiposIdentificacion id)
+        {
+            this.context.TiposIdentificacion.Add(id); ;
+            this.context.SaveChanges();
+        }
+
+        public void update(TiposIdentificacion id)
+        {
+            this.context.TiposIdentificacion.Update(id);
+            this.context.SaveChanges();
+        }
+
+        public void Remove(TiposIdentificacion id)
+        {
+            this.context.TiposIdentificacion.Remove(id);
+            this.context.SaveChanges();
         }
     }
 }
